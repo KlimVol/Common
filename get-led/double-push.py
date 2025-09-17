@@ -19,22 +19,21 @@ GPIO.output(leds, 0)
 while True:
     if(GPIO.input(buttonup) and GPIO.input(buttondown)):
         GPIO.output(leds, 1)
-    elif(GPIO.input(buttonup)):
+    elif(GPIO.input(buttondown)):
         nump = num
         num-=1
         if(num<0):
-            num = 7
-        print(dec2bin(num))
+            num = 255
+        print(dec2bin(num), num)
         time.sleep(sleep_time)
-    elif(GPIO.input(buttondown)):
+    elif(GPIO.input(buttonup)):
         nump = num
         num+=1
-        if(num>7):
+        if(num>255):
             num = 0
-        print(dec2bin(num))
+        print(dec2bin(num), num)
         time.sleep(sleep_time)
     else:
         GPIO.output(leds, 0)
-        GPIO.output(leds[num], 1)
-        GPIO.output(leds[nump], 0)
+        GPIO.output(leds, dec2bin(num))
      

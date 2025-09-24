@@ -18,7 +18,8 @@ GPIO.setup(leds, GPIO.OUT)
 GPIO.output(leds, 0)
 while True:
     if(GPIO.input(buttonup) and GPIO.input(buttondown)):
-        GPIO.output(leds, 1)
+       num = 255
+       time.sleep(0.02)
     elif(GPIO.input(buttondown)):
         nump = num
         num-=1
@@ -33,7 +34,5 @@ while True:
             num = 0
         print(dec2bin(num), num)
         time.sleep(sleep_time)
-    else:
-        GPIO.output(leds, 0)
-        GPIO.output(leds, dec2bin(num))
+    GPIO.output(leds, dec2bin(num))  
      

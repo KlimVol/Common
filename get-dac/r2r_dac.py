@@ -4,8 +4,8 @@ import time
 
 GPIO.setwarnings(False)
 
-dynamic_range = 3.3
-gpio_bits = [22,27,17,26,25,21,20,16]
+dynamic_range = 3.16
+gpio_bits = [16, 20,21,25,26,17,27,22]
 
 class R2R_DAC:
     def __init__(self,gpio_bits,dynamic_range,verbose = False):
